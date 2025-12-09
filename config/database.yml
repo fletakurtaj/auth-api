@@ -78,7 +78,7 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  <<: *default
-  database: auth_api_production
-  username: auth_api
-  password: <%= ENV["AUTH_API_DATABASE_PASSWORD"] %>
+  adapter: postgresql
+  encoding: unicode
+  url: <%= ENV["DATABASE_URL"] %>
+  pool: 5
