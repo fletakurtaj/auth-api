@@ -191,6 +191,3 @@ curl http://localhost:3000/me \
 Fleta Kurtaj
 Backend Engineer — Ruby on Rails
 GitHub: https://github.com/fletakurtaj
-
-yaml
-
