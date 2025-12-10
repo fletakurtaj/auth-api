@@ -28,7 +28,7 @@ class AuthController < ApplicationController
     token = header.split.last
 
     begin
-      decoded = JWT.decode(token, Rails.application.credentials.secret_key_base)
+      decoded = JWT.decode(token, ENV["SECRET_KEY_BASE"])
       user = User.find(decoded[0]["user_id"])
       render json: { user: user }, status: :ok
     rescue JWT::DecodeError
@@ -43,6 +43,6 @@ class AuthController < ApplicationController
   end
 
   def encode_token(payload)
-    JWT.encode(payload, Rails.application.credentials.secret_key_base)
+    JWT.encode(payload, ENV["SECRET_KEY_BASE"])
   end
 end
